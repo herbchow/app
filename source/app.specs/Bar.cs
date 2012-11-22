@@ -1,8 +1,15 @@
-﻿namespace app.specs
+﻿using app.utility.service_locator;
+
+namespace app.specs
 {
     public class Bar : IBar
     {
         private readonly IFoo _dependency;
+
+        public Bar()
+            : this(Dependencies.fetch.an<IFoo>())
+        {
+        }
 
         public Bar(IFoo dependency)
         {

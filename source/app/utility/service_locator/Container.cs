@@ -14,6 +14,9 @@ namespace app.utility.service_locator
         
         public TDependency an<TDependency>()
         {
+            if (!_registry.ContainsKey(typeof(TDependency)))
+                throw new DependencyNotFoundException();
+
             return (TDependency) _registry[typeof (TDependency)];
         }
 
@@ -22,9 +25,9 @@ namespace app.utility.service_locator
             _registry.Add(typeof(TDependency), dependency);
         }
         
-        public void register_dependency<TDependency>(Type implementationType)
+        public void register_dependency<TDependency, TImplementationType>()
         {
-            _registry.Add(typeof(TDependency), Activator.CreateInstance(implementationType));
+            _registry.Add(typeof(TDependency), Activator.CreateInstance<TImplementationType>());
         }
     }
 }

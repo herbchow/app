@@ -41,8 +41,10 @@ namespace app.specs
         {
             private Because b = () =>
                 {
-                    sut.register_dependency<IFoo>(typeof(Foo));
-                    sut.register_dependency<IBar>(typeof(Bar));
+                    Dependencies.resolution = () => sut;
+
+                    sut.register_dependency<IFoo, Foo>();
+                    sut.register_dependency<IBar, Bar>();
 
                     result = sut.an<IBar>();
                 };
