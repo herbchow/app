@@ -1,2 +1,2 @@
 [Core]
-our_setting = #<Configatron::Store:0x34caa60>
+our_setting = #<Configatron::Store:0x2a1f0f8>
