@@ -6,13 +6,14 @@
     void Application_Start(object sender, EventArgs e)
     {
         IFindDependencies container = new Container();
-
         RegisterDepenenciesInContainer(container);
+
+        Dependencies.resolution = () => container;
     }
 
     private void RegisterDepenenciesInContainer(IFindDependencies container)
     {
-        container.register_dependency<IHttpHandler>(typeof(BasicHandler));
+        container.register_dependency<IHttpHandler, BasicHandler>();
     }
 
 </script>
