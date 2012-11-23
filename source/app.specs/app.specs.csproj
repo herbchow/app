@@ -124,6 +124,7 @@
     <Compile Include="IBar.cs" />
     <Compile Include="IFoo.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
+    <Compile Include="RequestDetailsSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="ViewAModelSpecs.cs" />
     <Compile Include="ViewFactorySpecs.cs" />

@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -93,6 +94,7 @@
     </Compile>
     <Compile Include="web\core\aspnet\ViewFactory.cs" />
     <Compile Include="web\core\aspnet\WebFormsDisplayEngine.cs" />
+    <Compile Include="web\core\ControllerRequestFactory.cs" />
     <Compile Include="web\core\IDisplayInformation.cs" />
     <Compile Include="web\application\catalogbrowsing\IGetPresentationDataFromARequest.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewAReport.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="web\core\IProcessRequests.cs" />
     <Compile Include="web\core\ISupportAUserFeature .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
+    <Compile Include="web\core\RequestDetails.cs" />
     <Compile Include="web\core\stubs\StubPathRegistry.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
