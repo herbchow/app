@@ -58,7 +58,7 @@ namespace app.specs
                         Dependencies.resolution = () => container;
 
                         container.register_dependency<ICreateControllerRequests, StubRequestFactory>();
-                        container.register_dependency<IFindCommands, StubRequestFactory>();
+                        container.register_dependency<IFindCommands, CommandRegistry>();
 
                         container.register_dependency<IProcessRequests, FrontController>();
                         container.register_dependency<IHttpHandler, BasicHandler>();
