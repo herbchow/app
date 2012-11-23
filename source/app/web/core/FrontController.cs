@@ -6,7 +6,7 @@ namespace app.web.core
     {
         private IFindCommands command_registry;
 
-        public FrontController() : this (Dependencies.fetch.an<IFindCommands>())
+        public FrontController() : this (new StubCommandRegistry())
         {
             
         }
