@@ -105,9 +105,9 @@
     <Compile Include="web\application\catalogbrowsing\ViewSubDepartmentsRequest.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentRequest.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewProductsInDepartmentRequest.cs" />
-    <Compile Include="web\application\Department.cs" />
+    <Compile Include="web\application\models\Department.cs" />
     <Compile Include="web\application\IFetchStoreInformation.cs" />
-    <Compile Include="web\application\Product.cs" />
+    <Compile Include="web\application\models\Product.cs" />
     <Compile Include="web\application\stubs\StubCatalog.cs" />
     <Compile Include="web\core\aspnet\BasicHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
