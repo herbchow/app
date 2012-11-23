@@ -19,7 +19,7 @@
         container.register_dependency<ICreateControllerRequests, ControllerRequestFactory>();
         container.register_dependency<ICreateViews, ViewFactory>();
         container.register_dependency<IDisplayInformation, WebFormsDisplayEngine>();
-        container.register_dependency<IGetThePathToAViewThatCanDisplay, StubPathRegistry>();
+        container.register_dependency<IGetThePathToAViewThatCanDisplay, ConventionBasedPathRegistry>();
         container.register_dependency<IEnumerable<IProcessOneRequest>, CommandRoutingTable>();
         container.register_dependency<IFindCommands, CommandRegistry>();
 
