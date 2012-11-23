@@ -6,38 +6,38 @@ using developwithpassion.specifications.rhinomocks;
 
 namespace app.specs
 {
-  [Subject(typeof(ViewAReport<>))]
-  public class ViewAModelSpecs
-  {
-    public abstract class concern : Observes<ISupportAUserFeature,
-                                      ViewAReport<string>>
+    [Subject(typeof (ViewAReport<>))]
+    public class ViewAModelSpecs
     {
-    }
-
-    public class when_run : concern
-    {
-      Establish c = () =>
-      {
-        request = fake.an<IContainRequestDetails>();
-        model = "Test";
-        depends.on<IGetPresentationDataFromARequest<string>>(x =>
+        public abstract class concern : Observes<ISupportAUserFeature,
+                                            ViewAReport<string>>
         {
-          x.ShouldEqual(request);
-          return model;
-        });
+        }
 
-        display_engine = depends.on<IDisplayInformation>();
-      };
+        public class when_run : concern
+        {
+            private Establish c = () =>
+                {
+                    request = fake.an<IContainRequestDetails>();
+                    model = "Test";
+                    depends.on<IGetPresentationDataFromARequest<string>>(x =>
+                        {
+                            x.ShouldEqual(request);
+                            return model;
+                        });
 
-      Because b = () =>
-        sut.run(request);
+                    display_engine = depends.on<IDisplayInformation>();
+                };
 
-      It should_display_the_model_retrieved_by_a_query =
-        () => display_engine.received(x => x.display(model));
+            private Because b = () =>
+                                sut.run(request);
 
-      static IContainRequestDetails request;
-      static IDisplayInformation display_engine;
-      static string model;
+            private It should_display_the_model_retrieved_by_a_query =
+                () => display_engine.received(x => x.display(model));
+
+            private static IContainRequestDetails request;
+            private static IDisplayInformation display_engine;
+            private static string model;
+        }
     }
-  }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using app.web.application;
 using app.web.application.catalogbrowsing;
+using app.web.application.models;
 using app.web.application.stubs;
 
 namespace app.web.core.stubs

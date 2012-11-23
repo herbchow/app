@@ -47,30 +47,5 @@ namespace app.specs
             private static HttpContext a_raw_aspnet_request;
             private static ICreateControllerRequests request_factory;
         }
-
-
-        public class basic_handler_integration_fixture
-        {
-            private Establish context =
-                () =>
-                    {
-                        IFindDependencies container = new Container();
-                        Dependencies.resolution = () => container;
-
-                        container.register_dependency<ICreateControllerRequests, ControllerRequestFactory>();
-                        container.register_dependency<IFindCommands, CommandRegistry>();
-                        container.register_dependency<IContainRequestDetails, RequestDetails>();
-
-                        container.register_dependency<IProcessRequests, FrontController>();
-                        container.register_dependency<IHttpHandler, BasicHandler>();
-                    };
-
-            private It run_through_the_pipeline =
-                () =>
-                    {
-                        var basicHandler = Dependencies.fetch.an<IHttpHandler>();
-                        basicHandler.ProcessRequest(ObjectFactory.web.create_request());
-                    };
-        }
     }
 }

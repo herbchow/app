@@ -1,0 +1,15 @@
+<<<<<<< HEAD:source/app/web/application/Department.cs
+using System;
+
+namespace app.web.application
+=======
+namespace app.web.application.models
+>>>>>>> 35f6028fb4b48f9d53ef373cac6c00a425ed2496:source/app/web/application/models/Department.cs
+{
+    public class Department
+    {
+        public string name { get; set; }
+        public bool has_sub_departments { get; set; }
+        public Guid departmentId { get; set; }
+    }
+}

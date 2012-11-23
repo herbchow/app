@@ -86,7 +86,9 @@
     <Compile Include="utility\service_locator\IResolveTheContainerConfiguredAtStartup.cs" />
     <Compile Include="web\application\commands\DisplayMainDepartmentsCommand.cs" />
     <Compile Include="web\application\commands\DisplayProductsRequestCommand.cs" />
+    <Compile Include="web\application\commands\DisplayStoreCommand.cs" />
     <Compile Include="web\application\commands\DisplaySubDepartmentsCommand.cs" />
+    <Compile Include="web\application\models\Store.cs" />
     <Compile Include="web\core\ActionNameParser.cs" />
     <Compile Include="web\core\aspnet\ICreateAspxPageInstances.cs" />
     <Compile Include="web\core\aspnet\ICreateViews.cs" />
@@ -105,9 +107,9 @@
     <Compile Include="web\application\catalogbrowsing\ViewSubDepartmentsRequest.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentRequest.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewProductsInDepartmentRequest.cs" />
-    <Compile Include="web\application\Department.cs" />
+    <Compile Include="web\application\models\Department.cs" />
     <Compile Include="web\application\IFetchStoreInformation.cs" />
-    <Compile Include="web\application\Product.cs" />
+    <Compile Include="web\application\models\Product.cs" />
     <Compile Include="web\application\stubs\StubCatalog.cs" />
     <Compile Include="web\core\aspnet\BasicHandler.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
@@ -124,9 +126,8 @@
     <Compile Include="web\core\ISupportAUserFeature .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestDetails.cs" />
+    <Compile Include="web\core\stubs\ConventionBasedPathRegistry.cs" />
     <Compile Include="web\core\stubs\GetTheMainDepartments.cs" />
-    <Compile Include="web\core\stubs\StubPathRegistry.cs" />
-    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\CommandRoutingTable.cs" />
     <Compile Include="web\core\ViewAModelSpecs.cs" />
     <Compile Include="web\core\ViewNameParser.cs" />
