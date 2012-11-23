@@ -11,7 +11,7 @@ CodeFile="DepartmentBrowser.aspx.cs"
               <tr class="ListItem">
                 <td>
                     <% if(department.has_sub_departments) { %>
-                    <a href="?view=departments&action=sub-display">
+                    <a href="?view=departments&action=sub">
                         <%= department.name %>
                     </a>
                     <% } else {  %>
