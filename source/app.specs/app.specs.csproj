@@ -119,6 +119,7 @@
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="ControllerRequestFactorySpecs.cs" />
+    <Compile Include="ConventionBasedPathRegistry.cs" />
     <Compile Include="DependenciesSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
