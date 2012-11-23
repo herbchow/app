@@ -1,4 +1,7 @@
-﻿namespace app.web.core
+﻿using app.utility.service_locator;
+using app.web.application.catalogbrowsing;
+
+namespace app.web.core
 {
     public class RequestCommand : IProcessOneRequest
     {
@@ -19,6 +22,12 @@
         public bool can_process(IContainRequestDetails request)
         {
             return request_specification(request);
+        }
+
+        protected static ViewAReport<TPresentationModel> create_view_for_query<TPresentationModel>(
+            IGetPresentationDataFromARequest<TPresentationModel> query)
+        {
+            return new ViewAReport<TPresentationModel>(Dependencies.fetch.an<IDisplayInformation>(), query);
         }
     }
 }

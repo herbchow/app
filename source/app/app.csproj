@@ -84,6 +84,9 @@
     <Compile Include="utility\service_locator\DependencyNotRegisteredException.cs" />
     <Compile Include="utility\service_locator\IFindDependencies .cs" />
     <Compile Include="utility\service_locator\IResolveTheContainerConfiguredAtStartup.cs" />
+    <Compile Include="web\application\commands\DisplayMainDepartmentsCommand.cs" />
+    <Compile Include="web\application\commands\DisplayProductsRequestCommand.cs" />
+    <Compile Include="web\application\commands\DisplaySubDepartmentsCommand.cs" />
     <Compile Include="web\core\ActionNameParser.cs" />
     <Compile Include="web\core\aspnet\ICreateAspxPageInstances.cs" />
     <Compile Include="web\core\aspnet\ICreateViews.cs" />
