@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
-using app.web;
 using app.web.core;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
