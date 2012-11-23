@@ -5,22 +5,22 @@ using app.web.core.aspnet;
 
 namespace app.web.core.stubs
 {
-  public class StubPathRegistry : IGetThePathToAViewThatCanDisplay
-  {
-    public string get_the_path_to_the_template_for<Model>()
+    public class StubPathRegistry : IGetThePathToAViewThatCanDisplay
     {
-      var templates = new Dictionary<Type, string>
-      {
-        {typeof(IEnumerable<Department>), path_for("DepartmentBrowser")},
-        {typeof(IEnumerable<Product>), path_for("ProductBrowser")}
-      };
+        public string get_the_path_to_the_template_for<Model>()
+        {
+            var templates = new Dictionary<Type, string>
+                {
+                    {typeof (IEnumerable<Department>), path_for("DepartmentBrowser")},
+                    {typeof (IEnumerable<Product>), path_for("ProductBrowser")}
+                };
 
-      return templates[typeof(Model)];
-    }
+            return templates[typeof (Model)];
+        }
 
-    string path_for(string page)
-    {
-      return string.Format("~/views/{0}.aspx", page);
+        private string path_for(string page)
+        {
+            return string.Format("~/views/{0}.aspx", page);
+        }
     }
-  }
 }

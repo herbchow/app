@@ -9,16 +9,12 @@
     {
         IFindDependencies container = new Container();
         Dependencies.resolution = () => container;
-        RegisterDepenenciesInContainer(container);
-    }
 
-    private void RegisterDepenenciesInContainer(IFindDependencies container)
-    {
         container.register_dependency<ICreateControllerRequests, StubRequestFactory>();
-        container.register_dependency<IFindCommands, StubRequestFactory>();
-        
+        container.register_dependency<IFindCommands, CommandRegistry>();
+
         container.register_dependency<IProcessRequests, FrontController>();
         container.register_dependency<IHttpHandler, BasicHandler>();
     }
-
+    
 </script>
