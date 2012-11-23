@@ -7,6 +7,6 @@ namespace app.web.application
   {
     IEnumerable<Department> get_the_main_departments();
     IEnumerable<Department> get_the_departments_using(ViewSubDepartmentsRequest request);
-    IEnumerable<Product> get_the_products_using(ViewProductsInDepartmentRequest inputModel);
+    IEnumerable<Product> get_the_products_using(ViewProductsInDepartmentRequest request);
   }
 }
