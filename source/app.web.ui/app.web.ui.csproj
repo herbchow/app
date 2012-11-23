@@ -68,6 +68,10 @@
       <DependentUpon>App.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="views\StoreBrowser.aspx.cs">
+      <DependentUpon>StoreBrowser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="views\AccountMenu.aspx" />
@@ -89,7 +93,7 @@
     <Content Include="views\ProductSearch.ascx" />
     <Content Include="views\shoppingcart.aspx" />
     <Content Include="views\ShoppingCartSidebar.ascx" />
-    <Content Include="views\StoreDirectory.aspx" />
+    <Content Include="views\StoreBrowser.aspx" />
     <Content Include="styles.css" />
     <Content Include="views\UpdatePrices.aspx" />
   </ItemGroup>

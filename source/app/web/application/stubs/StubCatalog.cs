@@ -32,5 +32,10 @@ namespace app.web.application.stubs
         {
             return Enumerable.Range(1, 5).Select(x => new Product {name = x.ToString("Product 0")});
         }
+
+        public IEnumerable<Store> get_store()
+        {
+            return Enumerable.Range(1, 5).Select(x => new Store { name = x.ToString("Store 0") });
+        }
     }
 }

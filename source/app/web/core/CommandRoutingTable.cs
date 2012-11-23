@@ -15,7 +15,8 @@ namespace app.web.core
                 {
                     new DisplayProductsRequestCommand(),
                     new DisplayMainDepartmentsCommand(),
-                    new DisplaySubDepartmentsCommand()
+                    new DisplaySubDepartmentsCommand(),
+                    new DisplayStoreCommand()
                 };
         }
 
