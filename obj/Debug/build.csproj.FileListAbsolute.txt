@@ -1,0 +1,5 @@
+C:\course\app\bin\Debug\build.dll
+C:\course\app\bin\Debug\build.pdb
+C:\course\app\obj\Debug\build.csprojResolveAssemblyReference.cache
+C:\course\app\obj\Debug\build.dll
+C:\course\app\obj\Debug\build.pdb

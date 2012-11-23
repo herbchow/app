@@ -9,7 +9,17 @@ CodeFile="DepartmentBrowser.aspx.cs"
               <% foreach (var department in this.model)
                  { %>            
               <tr class="ListItem">
-               <td><a href="#"><%= department.name %></td>
+                <td>
+                    <% if(department.has_sub_departments) { %>
+                    <a href="?view=departments&action=sub-display">
+                        <%= department.name %>
+                    </a>
+                    <% } else {  %>
+                    <a href="?view=products&action=display">
+                        <%= department.name %>
+                    </a>
+                    <% } %>
+                </td>
            	  </tr>        
               <% } %>
       	    </table>            

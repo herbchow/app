@@ -1,19 +1,11 @@
-﻿using System.Web;
-
-namespace app.web.core.aspnet
+﻿namespace app.web.core.aspnet
 {
     public class WebFormsDisplayEngine : IDisplayInformation
     {
         private ICreateViews view_factory;
         private IGetTheCurrentlyExecutingRequest current_request_resolution;
 
-        public WebFormsDisplayEngine() : this(new ViewFactory(), () => HttpContext.Current)
-        {
-
-        }
-
-        public WebFormsDisplayEngine(ICreateViews view_factory,
-                                     IGetTheCurrentlyExecutingRequest current_request_resolution)
+        public WebFormsDisplayEngine(ICreateViews view_factory, IGetTheCurrentlyExecutingRequest current_request_resolution)
         {
             this.view_factory = view_factory;
             this.current_request_resolution = current_request_resolution;

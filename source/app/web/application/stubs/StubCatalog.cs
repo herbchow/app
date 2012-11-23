@@ -8,7 +8,14 @@ namespace app.web.application.stubs
     {
         public IEnumerable<Department> get_the_main_departments()
         {
-            return Enumerable.Range(1, 1000).Select(x => new Department {name = x.ToString("Department 0")});
+            return
+                Enumerable.Range(1, 10)
+                          .Select(x =>
+                                  new Department
+                                      {
+                                          name = x.ToString("Department 0"),
+                                          has_sub_departments = x/2 == 0
+                                      });
         }
 
         public IEnumerable<Department> get_the_departments_using(ViewSubDepartmentsRequest request)

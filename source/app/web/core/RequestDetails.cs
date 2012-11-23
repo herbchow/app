@@ -4,36 +4,32 @@ namespace app.web.core
 {
     public class RequestDetails : IContainRequestDetails
     {
-        private readonly IGetTheCurrentlyExecutingRequest get_request;
+        private readonly IGetTheCurrentlyExecutingRequest current_context;
+        private readonly IGetViewNameFromRequest _viewNameFromRequestParser;
+        private readonly IGetActionNameFromRequest action_parser;
 
-        public RequestDetails(IGetTheCurrentlyExecutingRequest get_request)
+        public RequestDetails(IGetTheCurrentlyExecutingRequest current_context, 
+            IGetViewNameFromRequest _viewNameFromRequestParser,
+            IGetActionNameFromRequest action_parser)
         {
-            this.get_request = get_request;
+            this.current_context = current_context;
+            this._viewNameFromRequestParser = _viewNameFromRequestParser;
+            this.action_parser = action_parser;
         }
 
         public string get_view_name()
         {
-            return ExtractViewNameFromPath(get_request().Request.Path);
+            return _viewNameFromRequestParser.parse_view_name(current_context().Request);
         }
 
         public string get_action()
         {
-            return ExtractActionFromPath(get_request().Request.Path);
-        }
-
-        private string ExtractActionFromPath(string path)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private string ExtractViewNameFromPath(string path)
-        {
-            throw new System.NotImplementedException();
+            return action_parser.parse_action_name(current_context().Request);
         }
 
         public ModelData map<ModelData>()
         {
-            return (ModelData) get_request().Items["Model"];
+            return (ModelData) current_context().Items["Model"];
         }
     }
 }

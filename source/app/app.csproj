@@ -81,9 +81,10 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="utility\service_locator\Container.cs" />
     <Compile Include="utility\service_locator\Dependencies.cs" />
-    <Compile Include="utility\service_locator\DependencyNotFoundException.cs" />
+    <Compile Include="utility\service_locator\DependencyNotRegisteredException.cs" />
     <Compile Include="utility\service_locator\IFindDependencies .cs" />
     <Compile Include="utility\service_locator\IResolveTheContainerConfiguredAtStartup.cs" />
+    <Compile Include="web\core\ActionNameParser.cs" />
     <Compile Include="web\core\aspnet\ICreateAspxPageInstances.cs" />
     <Compile Include="web\core\aspnet\ICreateViews.cs" />
     <Compile Include="web\core\aspnet\IDisplayAModel.cs" />
@@ -113,15 +114,19 @@
     <Compile Include="web\core\ICreateTheCommandWhenOneCantBeFound.cs" />
     <Compile Include="web\core\IFindCommands.cs" />
     <Compile Include="web\core\IMatchARequest.cs" />
+    <Compile Include="web\core\IParseActionName.cs" />
+    <Compile Include="web\core\IParseViewName.cs" />
     <Compile Include="web\core\IProcessOneRequest.cs" />
     <Compile Include="web\core\IProcessRequests.cs" />
     <Compile Include="web\core\ISupportAUserFeature .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestDetails.cs" />
+    <Compile Include="web\core\stubs\GetTheMainDepartments.cs" />
     <Compile Include="web\core\stubs\StubPathRegistry.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
-    <Compile Include="web\core\stubs\CommandList.cs" />
+    <Compile Include="web\core\CommandRoutingTable.cs" />
     <Compile Include="web\core\ViewAModelSpecs.cs" />
+    <Compile Include="web\core\ViewNameParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
