@@ -3,23 +3,31 @@ using System.Linq;
 
 namespace app.web.core
 {
-  public class CommandRegistry : IFindCommands
-  {
-    IEnumerable<IProcessOneRequest> processors;
-    ICreateTheCommandWhenOneCantBeFound missing_command_factory;
-
-    public CommandRegistry(IEnumerable<IProcessOneRequest> processors,
-                           ICreateTheCommandWhenOneCantBeFound missing_command_factory)
+    public class StubCommandRegistry : IFindCommands
     {
-      this.processors = processors;
-      this.missing_command_factory = missing_command_factory;
+        public IProcessOneRequest get_the_command_that_can_process(IContainRequestDetails request)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
-    public IProcessOneRequest get_the_command_that_can_process(IContainRequestDetails request)
+    public class CommandRegistry : IFindCommands
     {
-      var match = processors.FirstOrDefault(c => c.can_process(request));
+        private IEnumerable<IProcessOneRequest> processors;
+        private ICreateTheCommandWhenOneCantBeFound missing_command_factory;
 
-      return match ?? missing_command_factory();
+        public CommandRegistry(IEnumerable<IProcessOneRequest> processors,
+                               ICreateTheCommandWhenOneCantBeFound missing_command_factory)
+        {
+            this.processors = processors;
+            this.missing_command_factory = missing_command_factory;
+        }
+
+        public IProcessOneRequest get_the_command_that_can_process(IContainRequestDetails request)
+        {
+            var match = processors.FirstOrDefault(c => c.can_process(request));
+
+            return match ?? missing_command_factory();
+        }
     }
-  }
 }

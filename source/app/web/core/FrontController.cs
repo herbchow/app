@@ -1,8 +1,15 @@
-﻿namespace app.web.core
+﻿using app.utility.service_locator;
+
+namespace app.web.core
 {
     public class FrontController : IProcessRequests
     {
         private IFindCommands command_registry;
+
+        public FrontController() : this (Dependencies.fetch.an<IFindCommands>())
+        {
+            
+        }
 
         public FrontController(IFindCommands commandRegistry)
         {
