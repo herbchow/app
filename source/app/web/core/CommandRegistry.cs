@@ -7,7 +7,7 @@ namespace app.web.core
     {
         public IProcessOneRequest get_the_command_that_can_process(IContainRequestDetails request)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
     }
 
