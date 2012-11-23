@@ -16,6 +16,7 @@
         container.register_dependency_instance(CommandRoutingTable.command_not_found_strategy());
         container.register_dependency<IGetViewNameFromRequest, ViewNameParser>();
         container.register_dependency<IGetActionNameFromRequest, ActionNameParser>();
+        container.register_dependency<IGetParameterNameFromRequest, ParameterByNameParser>();
         container.register_dependency<ICreateControllerRequests, ControllerRequestFactory>();
         container.register_dependency<ICreateViews, ViewFactory>();
         container.register_dependency<IDisplayInformation, WebFormsDisplayEngine>();
