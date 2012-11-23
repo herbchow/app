@@ -20,7 +20,11 @@ namespace app.web.application.stubs
 
         public IEnumerable<Department> get_the_departments_using(ViewSubDepartmentsRequest request)
         {
-            return Enumerable.Range(1, 5).Select(x => new Department {name = x.ToString("Sub Department 0")});
+            return Enumerable.Range(1, 5).Select(x => new Department
+                {
+                    name = x.ToString("Sub Department 0"),
+                    has_sub_departments = x == 1
+                });
         }
 
         public IEnumerable<Product> get_the_products_using(ViewProductsInDepartmentRequest request)
