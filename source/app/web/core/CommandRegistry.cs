@@ -11,7 +11,7 @@ namespace app.web.core
         private ICreateTheCommandWhenOneCantBeFound missing_command_factory;
 
         public CommandRegistry()
-            : this(new StubSetOfCommands(), () =>
+            : this(new CommandList(), () =>
                 { throw new ApplicationException("Command that can process request not found."); })
         {
 

@@ -16,6 +16,16 @@ namespace app.web.core.stubs
             {
                 return Activator.CreateInstance<ModelData>();
             }
+
+            public string get_view_name()
+            {
+                return string.Empty;
+            }
+
+            public string get_action()
+            {
+                return string.Empty;
+            }
         }
     }
 }

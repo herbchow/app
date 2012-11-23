@@ -1,8 +1,9 @@
 ﻿namespace app.web.core
 {
-  public interface IContainRequestDetails
-  {
-  	InputModel map<InputModel>();
-  }
-
+    public interface IContainRequestDetails
+    {
+        InputModel map<InputModel>();
+        string get_view_name();
+        string get_action();
+    }
 }
