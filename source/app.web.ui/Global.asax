@@ -8,9 +8,10 @@
     void Application_Start(object sender, EventArgs e)
     {
         IFindDependencies container = new Container();
-        RegisterDepenenciesInContainer(container);
 
         Dependencies.resolution = () => container;
+        RegisterDepenenciesInContainer(container);
+
     }
 
     private void RegisterDepenenciesInContainer(IFindDependencies container)
