@@ -19,7 +19,7 @@
     <authentication mode="Windows"/>
     <% unless configatron.has_iis_express %>
     <httpHandlers>
-      <add path="*.iqmetrix"
+      <add path="view-engine/*"
         verb="*"
         type="app.web.core.aspnet.BasicHandler,app"/>
         </httpHandlers>
@@ -28,7 +28,7 @@
   <system.webServer>
     <% if configatron.has_iis_express %>
     <handlers>
-      <add name="blah" path="*.iqmetrix"
+      <add name="blah" path="view-engine/*"
         verb="*"
         type="app.web.core.aspnet.BasicHandler,app"/>
         </handlers> 

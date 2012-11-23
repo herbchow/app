@@ -6,6 +6,6 @@ namespace app.web.application
     {
         public string name { get; set; }
         public bool has_sub_departments { get; set; }
-        public Guid departmentId { get; set; }
+        public int departmentId { get; set; }
     }
 }

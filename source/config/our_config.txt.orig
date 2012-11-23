@@ -1,6 +1,6 @@
 [Core]
 <<<<<<< HEAD
-our_setting = #<Configatron::Store:0x2454888>
+our_setting = #<Configatron::Store:0x27883e0>
 =======
-our_setting = #<Configatron::Store:0x29ecd88>
->>>>>>> 35f6028fb4b48f9d53ef373cac6c00a425ed2496
+our_setting = #<Configatron::Store:0x2792a00>
+>>>>>>> remotes/origin/20121123093725784

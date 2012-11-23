@@ -27,6 +27,13 @@ namespace app.web.application.stubs
 
         public IEnumerable<Department> get_the_departments_using(ViewSubDepartmentsRequest request)
         {
+<<<<<<< HEAD
+            return Enumerable.Range(1, 5).Select(x => new Department
+                {
+                    name = x.ToString("Sub Department 0"),
+                    has_sub_departments = x == 1
+                });
+=======
             var subDepartments = new List<Department>();
             for (int i = 0; i < 5; i++ )
             {
@@ -37,6 +44,7 @@ namespace app.web.application.stubs
                                        });
             }
             return subDepartments;
+>>>>>>> remotes/origin/20121123093725784
         }
 
         public IEnumerable<Product> get_the_products_using(ViewProductsInDepartmentRequest request)
