@@ -1,2 +1,6 @@
 [Core]
+<<<<<<< HEAD
 our_setting = #<Configatron::Store:0x663288>
+=======
+our_setting = #<Configatron::Store:0x2bdf1a8>
+>>>>>>> f9e39d9a4cf4d8dca5fb2c5dd25ea95f76514987

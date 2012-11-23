@@ -1,20 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using app.web.core.stubs;
 
 namespace app.web.core
 {
-    public class StubCommandRegistry : IFindCommands
-    {
-        public IProcessOneRequest get_the_command_that_can_process(IContainRequestDetails request)
-        {
-            return null;
-        }
-    }
-
     public class CommandRegistry : IFindCommands
     {
         private IEnumerable<IProcessOneRequest> processors;
         private ICreateTheCommandWhenOneCantBeFound missing_command_factory;
+
+        public CommandRegistry()
+            : this(new StubSetOfCommands(), () =>
+                { throw new ApplicationException("Command that can process request not found."); })
+        {
+
+        }
 
         public CommandRegistry(IEnumerable<IProcessOneRequest> processors,
                                ICreateTheCommandWhenOneCantBeFound missing_command_factory)

@@ -8,58 +8,60 @@ using developwithpassion.specifications.rhinomocks;
 
 namespace app.specs
 {
-  [Subject(typeof(CommandRegistry))]
-  public class CommandRegistrySpecs
-  {
-    public abstract class concern : Observes<IFindCommands,
-                                      CommandRegistry>
+    [Subject(typeof (CommandRegistry))]
+    public class CommandRegistrySpecs
     {
-    }
-
-    public class when_getting_the_command_that_can_run_a_request : concern
-    {
-      Establish c = () =>
-      {
-        request = fake.an<IContainRequestDetails>();
-        all_the_possible_commands = Enumerable.Range(1, 100).Select(x => fake.an<IProcessOneRequest>()).ToList();
-        depends.on<IEnumerable<IProcessOneRequest>>(all_the_possible_commands);
-      };
-
-      Because b = () =>
-        result = sut.get_the_command_that_can_process(request);
-
-      public class and_it_has_the_command
-      {
-        Establish c = () =>
+        public abstract class concern : Observes<IFindCommands,
+                                            CommandRegistry>
         {
-          the_command_that_can_process = fake.an<IProcessOneRequest>();
-          all_the_possible_commands.Add(the_command_that_can_process);
+        }
 
-          the_command_that_can_process.setup(x => x.can_process(request)).Return(true);
-        };
-
-        It should_return_the_command_to_the_caller = () =>
-          result.ShouldEqual(the_command_that_can_process);
-
-        static IProcessOneRequest the_command_that_can_process;
-      }
-      public class and_it_does_not_have_the_command
-      {
-        Establish c = () =>
+        public class when_getting_the_command_that_can_run_a_request : concern
         {
-          the_special_case = fake.an<IProcessOneRequest>();
-          depends.on<ICreateTheCommandWhenOneCantBeFound>(() => the_special_case);
-        };
+            private Establish c = () =>
+                {
+                    request = fake.an<IContainRequestDetails>();
+                    all_the_possible_commands =
+                        Enumerable.Range(1, 100).Select(x => fake.an<IProcessOneRequest>()).ToList();
+                    depends.on<IEnumerable<IProcessOneRequest>>(all_the_possible_commands);
+                };
 
-        It should_return_the_special_case = () =>
-          result.ShouldEqual(the_special_case);
+            private Because b = () =>
+                                result = sut.get_the_command_that_can_process(request);
 
-        static IProcessOneRequest the_special_case;
-      }
+            public class and_it_has_the_command
+            {
+                private Establish c = () =>
+                    {
+                        the_command_that_can_process = fake.an<IProcessOneRequest>();
+                        all_the_possible_commands.Add(the_command_that_can_process);
 
-      static IProcessOneRequest result;
-      static IContainRequestDetails request;
-      static List<IProcessOneRequest> all_the_possible_commands;
+                        the_command_that_can_process.setup(x => x.can_process(request)).Return(true);
+                    };
+
+                private It should_return_the_command_to_the_caller = () =>
+                                                                     result.ShouldEqual(the_command_that_can_process);
+
+                private static IProcessOneRequest the_command_that_can_process;
+            }
+
+            public class and_it_does_not_have_the_command
+            {
+                private Establish c = () =>
+                    {
+                        the_special_case = fake.an<IProcessOneRequest>();
+                        depends.on<ICreateTheCommandWhenOneCantBeFound>(() => the_special_case);
+                    };
+
+                private It should_return_the_special_case = () =>
+                                                            result.ShouldEqual(the_special_case);
+
+                private static IProcessOneRequest the_special_case;
+            }
+
+            private static IProcessOneRequest result;
+            private static IContainRequestDetails request;
+            private static List<IProcessOneRequest> all_the_possible_commands;
+        }
     }
-  }
 }
