@@ -6,60 +6,60 @@ using developwithpassion.specifications.extensions;
 
 namespace app.specs
 {
-  [Subject(typeof(ViewFactory))]
-  public class ViewFactorySpecs
-  {
-    public abstract class concern : Observes<ICreateViews, ViewFactory>
+    [Subject(typeof (ViewFactory))]
+    public class ViewFactorySpecs
     {
-    }
-
-    public class when_creating_the_view_for_a_model : concern
-    {
-      Establish that = () =>
-      {
-        model_to_show = new ADummyModel();
-        expected_view = fake.an<IDisplayA<ADummyModel>>();
-        page = "blah.aspx";
-
-        view_path_registry = depends.on<IGetThePathToAViewThatCanDisplay>();
-
-        view_path_registry.setup(x => x.get_the_path_to_the_template_for<ADummyModel>()).Return(page);
-        depends.on<ICreateAspxPageInstances>((path, type) =>
+        public abstract class concern : Observes<ICreateViews, ViewFactory>
         {
-          path.ShouldEqual(page);
-          type.ShouldEqual(typeof(IDisplayA<ADummyModel>));
-          return expected_view;
-        });
-      };
+        }
 
-      Because of = () =>
-        result = sut.create_view_that_can_render(model_to_show);
+        public class when_creating_the_view_for_a_model : concern
+        {
+            private Establish that = () =>
+                {
+                    model_to_show = new ADummyModel();
+                    expected_view = fake.an<IDisplayA<ADummyModel>>();
+                    page = "blah.aspx";
 
-      It should_return_the_expected_view_handler = () =>
-        result.ShouldBeTheSameAs(expected_view);
+                    view_path_registry = depends.on<IGetThePathToAViewThatCanDisplay>();
 
-      It should_provide_the_template_with_its_data = () =>
-        expected_view.model.ShouldEqual(model_to_show);
-        
+                    view_path_registry.setup(x => x.get_the_path_to_the_template_for<ADummyModel>()).Return(page);
+                    depends.on<ICreateAspxPageInstances>((path, type) =>
+                        {
+                            path.ShouldEqual(page);
+                            type.ShouldEqual(typeof (IDisplayA<ADummyModel>));
+                            return expected_view;
+                        });
+                };
 
-      static ADummyModel model_to_show;
-      static IHttpHandler result;
+            private Because of = () =>
+                                 result = sut.create_view_that_can_render(model_to_show);
 
-      static IDisplayA<ADummyModel> expected_view;
-      static IGetThePathToAViewThatCanDisplay view_path_registry;
-      static string page;
+            private It should_return_the_expected_view_handler = () =>
+                                                                 result.ShouldBeTheSameAs(expected_view);
+
+            private It should_provide_the_template_with_its_data = () =>
+                                                                   expected_view.model.ShouldEqual(model_to_show);
+
+
+            private static ADummyModel model_to_show;
+            private static IHttpHandler result;
+
+            private static IDisplayA<ADummyModel> expected_view;
+            private static IGetThePathToAViewThatCanDisplay view_path_registry;
+            private static string page;
+        }
     }
-  }
 
-  public class ADummyModel
-  {
-  }
+    public class ADummyModel
+    {
+    }
 
-  public class ADummyModelView
-  {
-  }
+    public class ADummyModelView
+    {
+    }
 
-  public class TheWrongViewType
-  {
-  }
+    public class TheWrongViewType
+    {
+    }
 }
