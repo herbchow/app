@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using app.web.application.catalogbrowsing;
 
@@ -6,26 +7,49 @@ namespace app.web.application.stubs
 {
     public class StubCatalog : IFetchStoreInformation
     {
-        public IEnumerable<Department> get_the_main_departments()
-        {
-            return
-                Enumerable.Range(1, 10)
+        private static IEnumerable<Department> main_departments =
+            Enumerable.Range(1, 10)
                           .Select(x =>
                                   new Department
-                                      {
-                                          name = x.ToString("Department 0"),
-                                          has_sub_departments = x/2 == 0
-                                      });
+                                  {
+                                      name = x.ToString("Department 0"),
+                                      has_sub_departments = x / 2 == 0,
+                                      departmentId = x,
+                                  });
+        private const int subDepartmentStart = 0;
+        private const int productsStart = 5;
+
+        public IEnumerable<Department> get_the_main_departments()
+        {
+            return main_departments;
         }
 
         public IEnumerable<Department> get_the_departments_using(ViewSubDepartmentsRequest request)
         {
-            return Enumerable.Range(1, 5).Select(x => new Department {name = x.ToString("Sub Department 0")});
+            var subDepartments = new List<Department>();
+            for (int i = 0; i < 5; i++ )
+            {
+                subDepartments.Add(new Department
+                                       {
+                                           name = "Sub Department " + (i + 1),
+                                           departmentId = main_departments.ElementAt(i + subDepartmentStart).departmentId,
+                                       });
+            }
+            return subDepartments;
         }
 
         public IEnumerable<Product> get_the_products_using(ViewProductsInDepartmentRequest request)
         {
-            return Enumerable.Range(1, 5).Select(x => new Product {name = x.ToString("Product 0")});
+            var products = new List<Product>();
+            for (int i = 0; i < 5; i++)
+            {
+                products.Add(new Product
+                {
+                    name = "Product " + (i + 1),
+                    departmentId = main_departments.ElementAt(i + productsStart).departmentId,
+                });
+            }
+            return products;
         }
     }
 }

@@ -26,6 +26,11 @@ namespace app.web.core.stubs
             {
                 return string.Empty;
             }
+
+            public string get_parameter_by_name(string name)
+            {
+                return string.Empty;
+            }
         }
     }
 }

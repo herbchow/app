@@ -11,11 +11,15 @@ CodeFile="DepartmentBrowser.aspx.cs"
               <tr class="ListItem">
                 <td>
                     <% if(department.has_sub_departments) { %>
-                    <a href="?view=departments&action=sub">
+                    <a href='<%=
+                     String.Concat("?view=departments&action=sub&departmentId=", department.departmentId)
+                     %>'>
                         <%= department.name %>
                     </a>
                     <% } else {  %>
-                    <a href="?view=products&action=display">
+                    <a href='<%=
+                     String.Concat("?view=products&action=display&departmentId=", department.departmentId)
+                     %>'>
                         <%= department.name %>
                     </a>
                     <% } %>

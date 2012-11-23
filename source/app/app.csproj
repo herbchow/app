@@ -118,10 +118,12 @@
     <Compile Include="web\core\IFindCommands.cs" />
     <Compile Include="web\core\IMatchARequest.cs" />
     <Compile Include="web\core\IParseActionName.cs" />
+    <Compile Include="web\core\IGetParameterNameFromRequest.cs" />
     <Compile Include="web\core\IParseViewName.cs" />
     <Compile Include="web\core\IProcessOneRequest.cs" />
     <Compile Include="web\core\IProcessRequests.cs" />
     <Compile Include="web\core\ISupportAUserFeature .cs" />
+    <Compile Include="web\core\ParameterByNameParser.cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestDetails.cs" />
     <Compile Include="web\core\stubs\GetTheMainDepartments.cs" />
